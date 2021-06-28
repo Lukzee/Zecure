@@ -15,7 +15,6 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 
 import android.view.MenuItem;
 import android.widget.FrameLayout;
-import android.widget.Toast;
 
 import android.content.Intent;
 
@@ -92,14 +91,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         switch (menuItem.getItemId()){
-            case R.id.nav_about:
-                getSupportFragmentManager().beginTransaction().replace(R.id.framelayout_id, new About())
+            case R.id.nav_home:
+//                Intent intent = new Intent(MainActivity.this, Home.class);
+//                startActivity(intent);
+                getSupportFragmentManager().beginTransaction().replace(R.id.framelayout_id, new Home())
                         .commit();
                 closeDrawer();
                 break;
-            case R.id.nav_home:
-                Intent intent = new Intent(MainActivity.this, HomeActivity.class);
-                startActivity(intent);
+            case R.id.nav_about:
+                getSupportFragmentManager().beginTransaction().replace(R.id.framelayout_id, new About())
+                        .commit();
                 closeDrawer();
                 break;
             case R.id.nav_share:
